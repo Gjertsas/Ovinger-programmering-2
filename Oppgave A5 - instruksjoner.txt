@@ -1,0 +1,77 @@
+
+Instruksjoner
+Funksjonell programmering og GUI
+I denne innleveringen skal du jobbe med GUI, lambdauttrykk og streams. I tillegg skal du (som alltid) lage enhetstester, opprette Maven-prosjekt, og praktisere versjonskontroll med Git både lokalt og mot sentralt repo (GitLab/GitHub).
+
+Innleveringen består av et miniprosjekt (kortspill, se beskrivelse under). Vi anbefaler at du bruker dette prosjektet til å bli kjent med GUI med JavaFX, lambda-uttrykk, streams og filter, før du starter med å implementere GUI i mappen.
+
+Arbeidskravet gjennomføres individuelt. Når du har løst oppgaven må du levere i BB og vise frem det du har gjort til en læringsassistent for godkjenning.
+
+Problembeskrivelse – Miniprosjekt "Kortspill"
+Du skal utvikle et enkelt kortspill. Kortspillet består av en kortstokk (engelsk: DeckOfCards) som inneholder 52 kort (engelsk: PlayingCard). Det skal være mulig å dele ut en "hånd med kort" (engelsk: HandOfCards) til en spiller. Det skal deles ut minimum 5 kort.
+
+I kortspillet poker (blant annet), er en av kortkombinasjonene som gir poeng en flush (https://en.wikipedia.org/wiki/Flush_(cards)). Ditt program skal blant annet sjekke korthånden for 5-korts flush (altså 5 kort av samme farge, som f.eks. 5 hjerter eller 5 kløver), fortrinnsvis ved bruk av streams (med tilhørende funksjoner som filter, map osv.).
+
+Du står helt fritt når det gjelder utforming av GUI. I enkleste form kan du presentere en korthånd som en streng på formen "H4 H12 C3 D11 S1", der bokstavene 'H', 'D', 'C' og 'S' står for henholdsvis "Hearts", "Diamonds", "Clubs" og "Spades". Dersom du ønsker en ekstra utfordring, kan du også velge å vise kortene som bilder. Du finner mange eksempler på internett på hvordan du kan få til dette.
+
+Oppgavene under leder deg gjennom steg for steg.
+
+
+Oppgave 1
+Gitt vedlagt kode for en klasse som representerer et kort i en kortstokk (PlayingCard.java):
+
+Sett opp Maven-prosjektet riktig med en fornuftig artifactID og groupID, og med nødvendige avhengigheter og plugins for å kunne utvikle en JavaFX- applikasjon og for å kunne skrive enhetstester. Opprett også en fornuftig .gitignore-fil (om den ikke allerede finnes).
+
+Bruk samme versjon av JDK, avhengigheter og plugins som dere skal bruke i mappa. Test også at programmet ditt kjører fra kommandolinja med kommandoen mvn javafx:run.
+
+Fortsett deretter utviklingen av applikasjonen ved å følge oppgavene under.
+
+
+Oppgave 2
+Lag en klasse DeckOfCards som representerer en fullstendig kortstokk (52 kort). Du velger selv hvilken klasse fra Java-biblioteket du bruker for å holde på alle kortene. Konstruktøren skal opprette alle 52 kortene.
+
+Tips:
+
+For å håndtere fargen (hjerte, spar osv), lag en fixed size array som følger:
+
+private final char[] suit = { 'S', 'H', 'D', 'C' };
+Da kan du enkelt gjøre om fra tall 0 til 3 til bokstaven som representerer fargen, for eksempel i en for-løkke.
+
+
+Oppgave 3
+Lag en metode «dealHand(int n)» i klassen DeckOfCards som plukker tilfeldig n kort fra kortstokken og returnerer disse i en samling (collection). «n» er et tall mellom 1 og 52 som sendes inn som parameter til funksjonen. Denne funksjonen kan for eksempel brukes til å trekke n tilfeldige kort fra kortstokken. Du velger igjen selv hvilken klasse/interface fra Java-biblioteket du bruker som returtype på metoden. Tips: Du bør bruke Random-klassen for å oppnå tilfeldighet.
+
+Her kan du også vurdere om det vil være nyttig å lage en egen klasse for å representere en hånd med kort. Da kan man for eksempel legge til metoder på denne klassen for å f.eks. sjekke for flush og andre poenggivende kombinasjoner.
+
+
+Oppgave 4
+Da er vi klar for å lage GUI. Du velger selv hvordan du designer ditt GUI, og med hvilket verktøy. Det er altid lurt å lage en wireframe/mockup først. Bruk gjerne et verktøy som f.eks. Balsamiq eller Figma. Det er også lov å tegne for hånd ;-)
+
+Du skal kode GUI i Java (JavaFX) og ikke bruke FXML.
+
+Her er et eksempel på en wireframe (NB! dette er ikke et krav. Du har frihet til å designe GUI akkurat som du selv vil):
+
+
+
+Knappen "Deal hand" deler ut en hånd med kort fra kortstokken (ved bruk av dealHand(int n)-metoden fra Oppgave 3).
+
+
+Oppgave 5
+I denne oppgaven skal du analysere kortene på hånd (se punktliste under). I forslaget til GUI (wireframe over) vil dette typisk skje når brukeren trykker på knappen "Check hand".
+
+Her er det meningen at du skal anvende streams med tilhørende funskjoner for filtrering, map, reduce osv. Prøv å løse så mange du klarer av følgende:
+
+Regn ut summen av alle verdiene av kortene på hånd (ess = 1) 
+Hent ut bare kort som er av fargen "Hjerter", og vis i et tekstfelt på formen "H12 H9 H1". Dersom det ikke er noen Hjerter på hånd, kan tekstfeltet inneholde teksten "No Hearts", for eksempel.
+Sjekk om kortet "Spar dame" finnes blant kortene på hånden.
+Sjekk om kortene på hånd utgjør en "5-flush". D.v.s. 5 kort av samme farge (5 hjerter eller 5 ruter eller 5 kløver eller 5 spar).
+
+
+INNLEVERING
+Husk at du hele veien skal sjekke inn (commit) endringene du gjør i koden fortløpende til ditt lokale repository. Push også endringene i lokalt repo til remote repo nå og da.
+
+Når du er ferdig med CardGame-applikasjonen, gjør du som følger:
+
+1. Lag en zip-fil av prosjektmappen din (slik som du gjorde i Mappe – Del 1) og legg ved som svar på denne oppgaven.
+2. Push de siste endringene til remote repository og lim inn URL'en til ditt remote repo i tekstfeltet for innleveringen.
+3. Vis frem det du har gjort til en læringsassistent for godkjenning
