@@ -30,12 +30,12 @@ public class CardGameApp extends Application {
   public void start(Stage primaryStage) {
     primaryStage.setTitle("Øving 5: Card Game");
 
-    //Tittel
+    // Tittel
     Label title = new Label("♥ Card Game ♥ ");
     title.setFont(Font.font("Georgia", FontWeight.BOLD, 28));
     title.setTextFill(Color.WHITE);
 
-    //Display
+    // Display
     cardBox = new HBox(10);
     cardBox.setAlignment(Pos.CENTER);
     cardBox.setMinHeight(120);
@@ -55,5 +55,19 @@ public class CardGameApp extends Application {
             "-fx-border-radius: 12;"
     );
     cardArea.setPadding(new Insets(10));
+
+    // Knapper
+    Button dealButton  = new Button("Deal Hand");
+    Button checkButton = new Button("Check Hand");
+ 
+    styleButton(dealButton,  "#e63946");
+    styleButton(checkButton, "#457b9d");
+ 
+    dealButton.setOnAction(e -> dealHand());
+    checkButton.setOnAction(e -> checkHand());
+ 
+    HBox buttons = new HBox(16, dealButton, checkButton);
+    buttons.setAlignment(Pos.CENTER);
+
   }
 }
