@@ -23,7 +23,7 @@ public class DeckOfCards {
 
     for (char suit : suits) {
       for (int facevalue = 1; facevalue <= 13; facevalue++) {
-        deck.add(new PlayingCard(0, facevalue));
+        deck.add(new PlayingCard(suit, facevalue));
       }
     }
   }
@@ -42,5 +42,12 @@ public class DeckOfCards {
 
     List<PlayingCard> deckCopy = new ArrayList<>(deck);
     List<PlayingCard> hand = new ArrayList<>();
+
+    for (int i = 0; i < n; i++) {
+      int index = random.nextInt(deckCopy.size());
+      hand.add(deckCopy.remove(index));
+    }
+
+    return new HandOfCards(hand);
   }
 }
