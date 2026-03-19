@@ -42,5 +42,18 @@ public class HandOfCards {
       .sum();
   }
 
-  
+  /**
+   * Returnerer string av alle hjerter i hånden. 
+   * 
+   * @return formattert string av hjerterkort. 
+   */
+  public String heartsAsString() {
+    String hearts = cards.stream()
+      .filter(c -> c.getSuit() == 'H')
+      .map(PlayingCard::toString)
+      .collect(Collectors.joining(" "));
+
+    return hearts.isEmpty() ? "No hearts" : hearts;
+  }
+
 }
