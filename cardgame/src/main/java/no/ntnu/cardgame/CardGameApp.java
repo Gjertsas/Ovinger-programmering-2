@@ -129,4 +129,18 @@ public class CardGameApp extends Application {
     flushValue.setText(flush ? "Flush!" : "No Flush");
     flushValue.setTextFill(flush ? Color.GOLD : Color.WHITE);
   }
+
+  /**
+   * Fjerner resultat
+   */
+  private void clearResults() {
+    sumValue.setText("-");
+    heartsValue.setText("-");
+    queenValue.setText("-");
+    queenValue.setTextFill(Color.WHITE);
+    flushValue.setText("-");
+    flushValue.setTextFill(Color.WHITE);
+  }
+
+  
 }
