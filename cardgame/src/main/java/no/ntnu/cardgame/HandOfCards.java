@@ -18,7 +18,15 @@ public class HandOfCards {
    * @param cards list
    */
   public HandOfCards(List<PlayingCard> cards) {
-        this.cards = List.copyOf(cards);
+    this.cards = List.copyOf(cards);
     }
-    
+
+  /**
+   * Returnerer kort i denne hånden. 
+   * 
+   * @return unmodifiable liste av kort
+   */
+   public List<PlayingCard> getCards() {
+    return cards;
+    }
 }
