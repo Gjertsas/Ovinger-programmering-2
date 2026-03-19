@@ -66,5 +66,17 @@ public class HandOfCards {
       .anyMatch(c -> c.getSuit() == 'S' && c.getFacevalue() == 12);
   }
 
+  /**
+   * Sjekker om kortene utgjør en 5-flush. 
+   * 
+   * @return true om 5 kort fra samme sort er på hånden. 
+   */
+  public boolean isFlush() {
+    map<Character, Long> suitCounts = cards.stream()
+      .collect(Collectors.groupingBy(PlayingCard::getSuit, Collectors.counting()));
+
+    return suitCounts.values().stream()
+      .anyMatch(count -> count >= 5);
+  }
   
 }
