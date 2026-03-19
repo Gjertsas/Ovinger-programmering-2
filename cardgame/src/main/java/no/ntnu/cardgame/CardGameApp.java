@@ -111,4 +111,22 @@ public class CardGameApp extends Application {
     }
     clearResults();
   }
+
+  /** 
+   * Streams analyserer hånden. 
+   */
+  private void checkHand() {
+    if (currentHand == null) return;
+ 
+    sumValue.setText(String.valueOf(currentHand.sumOfFaces()));
+    heartsValue.setText(currentHand.heartsAsString());
+ 
+    boolean hasQueen = currentHand.hasQueenOfSpades();
+    queenValue.setText(hasQueen ? "Yes!" : "No");
+    queenValue.setTextFill(hasQueen ? Color.LIGHTGREEN : Color.WHITE);
+ 
+    boolean flush = currentHand.isFlush();
+    flushValue.setText(flush ? "Flush!" : "No Flush");
+    flushValue.setTextFill(flush ? Color.GOLD : Color.WHITE);
+  }
 }
