@@ -185,5 +185,16 @@ public class CardGameApp extends Application {
     };
   }
 
-  
+  /**
+   * Gjør om billedkort til bokstaver. 
+   */
+   private String getFaceText(int face) {
+    return switch (face) {
+        case 1  -> "A";
+        case 11 -> "J";
+        case 12 -> "Q";
+        case 13 -> "K";
+        default -> String.valueOf(face);
+        };
+    }
 }
