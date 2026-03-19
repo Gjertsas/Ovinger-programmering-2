@@ -1,4 +1,4 @@
-package cardgame.src.main.java.no.ntnu.cardgame;
+package no.ntnu.cardgame;
 
 /** 
  * Representerer ett kort med farge/sort og verdi. 
@@ -49,5 +49,5 @@ public class PlayingCard {
   public String toString() {
     return "" + suit + facevalue;
   }
-  
+
 }
