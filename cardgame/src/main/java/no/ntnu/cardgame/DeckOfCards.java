@@ -27,5 +27,19 @@ public class DeckOfCards {
       }
     }
   }
-  
+
+  /**
+   * Deler ut hånd med n random kort valgt fra stokken. 
+   * 
+   * @param n antall kort å dele ut (1-52)
+   * @return HandOfCards som inneholder n unike kort. 
+   * @throws IllegalArgumentException om n ikke er 1-52.
+   */
+  public HandOfCards dealHand(int n) {
+    if (n < 1 || n > 52) {
+      throw new IllegalArgumentException("Antall kort må være fra 1 til 52.");
+    }
+
+    
+  }
 }
