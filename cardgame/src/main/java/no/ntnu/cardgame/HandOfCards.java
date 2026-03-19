@@ -38,7 +38,7 @@ public class HandOfCards {
    */
   public int sumOfFaces() {
     return cards.stream()
-      .mapToInt(PlayingCard::getFace)
+      .mapToInt(PlayingCard::getFacevalue)
       .sum();
   }
 
@@ -72,11 +72,22 @@ public class HandOfCards {
    * @return true om 5 kort fra samme sort er på hånden. 
    */
   public boolean isFlush() {
-    map<Character, Long> suitCounts = cards.stream()
+    Map<Character, Long> suitCounts = cards.stream()
       .collect(Collectors.groupingBy(PlayingCard::getSuit, Collectors.counting()));
 
     return suitCounts.values().stream()
       .anyMatch(count -> count >= 5);
   }
   
+  /**
+   * Returnere string med kortene på hånden. 
+   * 
+   * @return kortstring med rom mellom kortene, eks "H4 H5 H8 H9 D2"
+   */
+  @Override
+  public String toString() {
+    return cards.stream()
+      .map(PlayingCard::toString)
+      .collect(Collectors.joining(" "));
+  }
 }
