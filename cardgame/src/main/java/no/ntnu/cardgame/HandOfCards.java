@@ -56,4 +56,15 @@ public class HandOfCards {
     return hearts.isEmpty() ? "No hearts" : hearts;
   }
 
+  /**
+   * Sjekker om spardame er i hånden. 
+   * 
+   * @return true om spardame er i hånden
+   */
+  public boolean hasQueenOfSpades() {
+    return cards.stream()
+      .anyMatch(c -> c.getSuit() == 'S' && c.getFacevalue() == 12);
+  }
+
+  
 }
