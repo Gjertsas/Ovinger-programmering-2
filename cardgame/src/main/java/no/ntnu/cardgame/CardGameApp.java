@@ -171,5 +171,19 @@ public class CardGameApp extends Application {
      );
     return tile;
   }
+
+  /**
+   * Gjør om bokstaver til symbol
+   */
+  private String getSuitSymbol(char suit) {
+    return switch (suit) {
+        case 'H' -> "♥";
+        case 'D' -> "♦";
+        case 'C' -> "♣";
+        case 'S' -> "♠";
+        default  -> "?";
+    };
+  }
+
   
 }
