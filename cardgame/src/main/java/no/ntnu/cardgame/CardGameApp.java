@@ -69,5 +69,25 @@ public class CardGameApp extends Application {
     HBox buttons = new HBox(16, dealButton, checkButton);
     buttons.setAlignment(Pos.CENTER);
 
+    // Resultat
+    sumValue    = resultLabel();
+    heartsValue = resultLabel();
+    queenValue  = resultLabel();
+    flushValue  = resultLabel();
+ 
+    GridPane results = new GridPane();
+    results.setHgap(16);
+    results.setVgap(10);
+    results.setPadding(new Insets(16));
+    results.setStyle(
+            "-fx-background-color: #1d3557;" +
+            "-fx-background-radius: 10;"
+    );
+    results.add(rowLabel("Sum of faces:"),    0, 0); results.add(sumValue,    1, 0);
+    results.add(rowLabel("Hearts:"),          0, 1); results.add(heartsValue, 1, 1);
+    results.add(rowLabel("Queen of Spades:"), 0, 2); results.add(queenValue,  1, 2);
+    results.add(rowLabel("5-card Flush:"),    0, 3); results.add(flushValue,  1, 3);
+
+    
   }
 }
