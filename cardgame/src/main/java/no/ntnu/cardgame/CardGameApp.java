@@ -88,6 +88,15 @@ public class CardGameApp extends Application {
     results.add(rowLabel("Queen of Spades:"), 0, 2); results.add(queenValue,  1, 2);
     results.add(rowLabel("5-card Flush:"),    0, 3); results.add(flushValue,  1, 3);
 
-    
+    //Layout
+    VBox root = new VBox(18, title, cardArea, buttons, results);
+    root.setPadding(new Insets(24));
+    root.setAlignment(Pos.TOP_CENTER);
+    root.setStyle("-fx-background-color: #0d1b2a;");
+ 
+    Scene scene = new Scene(root, 540, 430);
+    primaryStage.setScene(scene);
+    primaryStage.setResizable(false);
+    primaryStage.show();
   }
 }
