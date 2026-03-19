@@ -148,7 +148,7 @@ public class CardGameApp extends Application {
    private VBox makeCardTile(PlayingCard card) {
     boolean isRed = card.getSuit() == 'H' || card.getSuit() == 'D';
     String suitSymbol = getSuitSymbol(card.getSuit());
-    String faceText   = getFaceText(card.getFace());
+    String faceText   = getFaceText(card.getFacevalue());
  
     Label faceLabel = new Label(faceText);
     faceLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
@@ -220,9 +220,18 @@ public class CardGameApp extends Application {
   }
 
   /**
-   * 
+   * Utseende på knapper
    */
-
+   private void styleButton(Button button, String color) {
+    button.setFont(Font.font("Arial", FontWeight.BOLD, 13));
+    button.setTextFill(Color.WHITE);
+    button.setPadding(new Insets(8, 20, 8, 20));
+    String base  = "-fx-background-color:" + color + ";-fx-background-radius:8;-fx-cursor:hand;";
+    String hover = "-fx-background-color:derive(" + color + ",-15%);-fx-background-radius:8;-fx-cursor:hand;";
+    button.setStyle(base);
+    button.setOnMouseEntered(e -> button.setStyle(hover));
+    button.setOnMouseExited(e  -> button.setStyle(base));
+  }
 
   /**
    * Starter app
