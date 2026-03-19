@@ -27,5 +27,33 @@ public class CardGameApp extends Application {
   private Label flushValue;
 
   @Override
-  
+  public void start(Stage primaryStage) {
+    primaryStage.setTitle("Øving 5: Card Game");
+
+    //Tittel
+    Label title = new Label("♥ Card Game ♥ ");
+    title.setFont(Font.font("Georgia", FontWeight.BOLD, 28));
+    title.setTextFill(Color.WHITE);
+
+    //Display
+    cardBox = new HBox(10);
+    cardBox.setAlignment(Pos.CENTER);
+    cardBox.setMinHeight(120);
+    cardBox.setPadding(new Insets(10));
+ 
+    Label placeholder = new Label("Press 'Deal Hand' to start");
+    placeholder.setTextFill(Color.LIGHTGRAY);
+    placeholder.setFont(Font.font("Arial", 14));
+    cardBox.getChildren().add(placeholder);
+ 
+    StackPane cardArea = new StackPane(cardBox);
+    cardArea.setStyle(
+            "-fx-background-color: #2d6a4f;" +
+            "-fx-background-radius: 12;" +
+            "-fx-border-color: #95d5b2;" +
+            "-fx-border-width: 2;" +
+            "-fx-border-radius: 12;"
+    );
+    cardArea.setPadding(new Insets(10));
+  }
 }
