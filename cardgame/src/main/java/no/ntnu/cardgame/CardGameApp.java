@@ -99,4 +99,16 @@ public class CardGameApp extends Application {
     primaryStage.setResizable(false);
     primaryStage.show();
   }
+
+  /**
+   * Metode for utdeling av kort. 
+   */
+  private void dealHand() {
+    currentHand = deck.dealHand(5);
+    cardBox.getChildren().clear();
+    for (PlayingCard card : currentHand.getCards()) {
+      cardBox.getChildren().add(makeCardTile(card));
+    }
+    clearResults();
+  }
 }
