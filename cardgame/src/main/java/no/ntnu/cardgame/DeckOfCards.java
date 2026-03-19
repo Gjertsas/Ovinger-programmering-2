@@ -40,6 +40,7 @@ public class DeckOfCards {
       throw new IllegalArgumentException("Antall kort må være fra 1 til 52.");
     }
 
-    
+    List<PlayingCard> deckCopy = new ArrayList<>(deck);
+    List<PlayingCard> hand = new ArrayList<>();
   }
 }
