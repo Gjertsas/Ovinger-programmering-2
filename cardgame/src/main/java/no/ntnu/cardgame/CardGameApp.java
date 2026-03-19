@@ -142,5 +142,34 @@ public class CardGameApp extends Application {
     flushValue.setTextFill(Color.WHITE);
   }
 
+  /**
+   * Lager en pen look på kortet. 
+   */
+   private VBox makeCardTile(PlayingCard card) {
+    boolean isRed = card.getSuit() == 'H' || card.getSuit() == 'D';
+    String suitSymbol = getSuitSymbol(card.getSuit());
+    String faceText   = getFaceText(card.getFace());
+ 
+    Label faceLabel = new Label(faceText);
+    faceLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
+    faceLabel.setTextFill(isRed ? Color.RED : Color.BLACK);
+ 
+    Label suitLabel = new Label(suitSymbol);
+    suitLabel.setFont(Font.font("Arial", FontWeight.BOLD, 22));
+    suitLabel.setTextFill(isRed ? Color.RED : Color.BLACK);
+ 
+    VBox tile = new VBox(4, faceLabel, suitLabel);
+    tile.setAlignment(Pos.CENTER);
+    tile.setPrefSize(72, 96);
+    tile.setStyle(
+            "-fx-background-color: white;" +
+            "-fx-background-radius: 8;" +
+            "-fx-border-color: #cccccc;" +
+            "-fx-border-radius: 8;" +
+            "-fx-border-width: 1;" +
+            "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 2, 2);"
+     );
+    return tile;
+  }
   
 }
