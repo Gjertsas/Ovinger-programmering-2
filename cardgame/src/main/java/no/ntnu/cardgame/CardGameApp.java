@@ -197,4 +197,37 @@ public class CardGameApp extends Application {
         default -> String.valueOf(face);
         };
     }
+
+  /**
+   * Radlabel
+   */  
+  private Label rowLabel(String text) {
+    Label label = new Label(text);
+    label.setFont(Font.font("Arial", FontWeight.BOLD, 13));
+    label.setTextFill(Color.LIGHTGRAY);
+    return label;
+  }
+
+  /**
+   * Resultatlabel. 
+   */
+  private Label resultLabel() {
+    Label label = new Label("-");
+    label.setFont(Font.font("Arial", 13));
+    label.setTextFill(Color.WHITE);
+    label.setMinWidth(200);
+    return label;
+  }
+
+  /**
+   * 
+   */
+
+
+  /**
+   * Starter app
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
 }
