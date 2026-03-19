@@ -1,4 +1,4 @@
-package no.ntnu.cardgame;
+package cardgame.src.main.java.no.ntnu.cardgame;
 
 /** 
  * Representerer ett kort med farge/sort og verdi. 
@@ -21,4 +21,33 @@ public class PlayingCard {
     this.suit = suit;
     this.facevalue = facevalue;
   }
+
+  /**
+   * Returnerer kortets sort. 
+   * 
+   * @return suit char (S, H, D, C)
+   */
+  public char getSuit() {
+    return suit;
+  }
+
+  /**
+   * Returnerer kortets verdi. 
+   * 
+   * @return int fra 1 til 13
+   */
+  public int getFacevalue() {
+    return facevalue;
+
+  }
+  /**
+   * Returnerer string som representerer kortets sort og verdi, eks. H13 for hjerter konge. 
+   * 
+   * @return string med sort-bokstav fulgt av verdi
+   */
+  @Override
+  public String toString() {
+    return "" + suit + facevalue;
+  }
+  
 }
