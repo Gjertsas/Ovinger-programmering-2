@@ -9,4 +9,16 @@ import java.util.stream.Collectors;
  * Streams-baserte metoder for å analysere hånden.
  */
 public class HandOfCards {
+
+  private final List<PlayingCard> cards;
+
+  /**
+   * Lager en hånd fra listen med kort. 
+   * 
+   * @param cards list
+   */
+  public HandOfCards(List<PlayingCard> cards) {
+        this.cards = List.copyOf(cards);
+    }
+    
 }
