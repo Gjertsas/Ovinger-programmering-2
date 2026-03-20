@@ -53,7 +53,7 @@ public class HandOfCards {
       .map(PlayingCard::toString)
       .collect(Collectors.joining(" "));
 
-    return hearts.isEmpty() ? "No hearts" : hearts;
+    return hearts.isEmpty() ? "No Hearts" : hearts;
   }
 
   /**
